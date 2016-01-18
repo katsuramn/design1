@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="listing">
+Жагсаалт
+</div>
+
+<table>
+  <tbody>
+    <font>
+    <% @pages.each do |page| %>
+      <tr>
+        <h2><%= page.name %></h2>
+        <h4><%= page.content %></h4>
+        <div><%= image_tag page.avatar.url(:medium) %></div>
+        <div class="btn btn-default btn-lg">
+            <%= link_to 'Show', page %>
+        </div>
+        <div class="btn btn-default btn-lg">
+          <%= link_to 'Edit', edit_page_path(page) %>
+      </div>
+      <div class="btn btn-default btn-lg">
+        <%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="btn btn-default btn-lg">
+<%= link_to 'New Page', new_page_path %>
+</div>
